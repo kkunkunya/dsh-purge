@@ -68,6 +68,10 @@ diff -rq --exclude=.git . ~/.dsh/profiles/desktop/node_modules/dsh-purge
 | `dsh-purge-state/unpacked-asar.json` | 桌面 asar 解包身份（size + mtime） |
 | `dsh-purge-state/desktop-install.txt` | 桌面安装路径 |
 | `package-files.sha256` | 本机副本逐文件校验值 |
+| [`REDTEAM-ENV.md`](REDTEAM-ENV.md) | 红队环境实况：23 个技能、工具链清单、平台适配（darwin_arm64/Rosetta）、未完成项、换机复现 |
+| [`redteam/install-darwin.sh`](redteam/install-darwin.sh) | 工具箱安装器（darwin_arm64，幂等，`--check` / `--force`） |
+| [`redteam/vps.sh`](redteam/vps.sh) | 反弹 Shell 控制台（13 子命令，从 `.env` 读 VPS 配置） |
+| [`redteam/toolkit-versions.md`](redteam/toolkit-versions.md) | 工具箱各二进制版本与架构 |
 
 ## 未纳入的（留在本机）
 
