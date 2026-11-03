@@ -1,0 +1,1442 @@
+# Your patch layer for this dsh profile, applied after every bundle layer:
+# a top-level YAML array of loader patch entries (id-targeted config
+# overrides, disables, and insert lists; `!!js` expressions allowed).
+- id: ui-chat
+  name: "@deepseek-ai/dsh-client-ui-chat"
+  config:
+    transcriptView: standard
+    performanceUsage: detailed
+- id: ui-settings
+  name: "@deepseek-ai/dsh-client-ui-settings"
+  config:
+    enabled: true
+- id: ui-settings-account
+  name: "@deepseek-ai/dsh-client-ui-settings-account"
+  config:
+    version: 1
+    step: done
+    usage: detailed
+    developerTools: true
+    purpose: null
+    process: standard
+    completion: api-key
+
+- id: llm-pi-ai # magpie
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      magpie:
+        displayName: Magpie
+        apiKeyEnv: MAGPIE_GATEWAY_KEY
+        api: openai-completions
+        baseURL: http://127.0.0.1:3425/v1
+        models:
+          - id: group/office-claude
+            name: office-claude · routing group
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: group/office-opencode
+            name: office-opencode · routing group
+            contextWindow: 1048576
+            maxTokens: 458752
+            input: [text, image]
+          - id: group/office-opencode-kun
+            name: office-opencode-kun · routing group
+            contextWindow: 1048576
+            maxTokens: 458752
+            input: [text, image]
+            reasoningEfforts:
+              high: high
+          - id: zhipu/glm-5.3
+            name: GLM-5.3 · Zhipu GLM
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: zhipu/glm-5.3-flash
+            name: GLM-5.3-Flash · Zhipu GLM
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: zhipu/glm-5.2
+            name: GLM-5.2 · Zhipu GLM
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              high: high
+              max: max
+          - id: zhipu/glm-5.1
+            name: GLM-5.1 · Zhipu GLM
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+          - id: zhipu/glm-5-turbo
+            name: GLM-5-Turbo · Zhipu GLM
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: zhipu/glm-5
+            name: GLM-5 · Zhipu GLM
+            contextWindow: 204800
+            maxTokens: 51200
+            input: [text, image]
+          - id: zhipu/glm-4.7
+            name: GLM-4.7 · Zhipu GLM
+            contextWindow: 204800
+            maxTokens: 51200
+            input: [text, image]
+          - id: opencode-go/deepseek-v4.1-flash
+            name: DeepSeek V4.1 Flash · OpenCode Go
+            contextWindow: 1000000
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: opencode-go/deepseek-v4-pro
+            name: DeepSeek V4 Pro · OpenCode Go
+            contextWindow: 1000000
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              high: high
+              max: max
+          - id: opencode-go/glm-5.2
+            name: GLM-5.2 · OpenCode Go
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              high: high
+              max: max
+          - id: opencode-go/glm-5.3
+            name: GLM-5.3 · OpenCode Go
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: opencode-go/glm-5.3-flash
+            name: GLM-5.3-Flash · OpenCode Go
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: opencode-go/hy3
+            name: Hy3 · OpenCode Go
+            contextWindow: 192000
+            maxTokens: 48000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              high: high
+          - id: opencode-go/hy4-preview
+            name: Hy4 preview · OpenCode Go
+            contextWindow: 1024000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              high: high
+          - id: opencode-go/kimi-k2.7-code
+            name: Kimi K2.7 Code · OpenCode Go
+            contextWindow: 262144
+            maxTokens: 65536
+            input: [text, image]
+          - id: opencode-go/kimi-k3
+            name: Kimi K3 · OpenCode Go
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              max: max
+          - id: opencode-go/mimo-v2.6-flash
+            name: MiMo-V2.6-Flash · OpenCode Go
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+          - id: opencode-go/mimo-v2.6-pro
+            name: MiMo-V2.6-Pro · OpenCode Go
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+          - id: nexus-gpu/nexus-video
+            name: nexus-video · Nexus GPU
+            input: [text, image]
+          - id: gpt/gpt-5.6-sol
+            name: GPT-5.6 Sol · GPT 破甲
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt/gpt-5.6-terra
+            name: GPT-5.6 Terra · GPT 破甲
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt/gpt-6-astra
+            name: GPT-6 Astra · GPT 破甲
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt/gpt-6-sol
+            name: GPT-6 Sol · GPT 破甲
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt/gpt-6.1-sol
+            name: GPT-6.1 Sol · GPT 破甲
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt/gpt-6.1-terra
+            name: GPT-6.1 Terra · GPT 破甲
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt/grok-4.3
+            name: Grok 4.3 · GPT 破甲
+            contextWindow: 1000000
+            maxTokens: 30000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: gpt/grok-4.5
+            name: Grok 4.5 · GPT 破甲
+            contextWindow: 500000
+            maxTokens: 184464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: gpt/grok-4.6
+            name: Grok 4.6 · GPT 破甲
+            contextWindow: 500000
+            maxTokens: 184464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: gpt/grok-4.7
+            name: Grok 4.7 · GPT 破甲
+            contextWindow: 500000
+            maxTokens: 184464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: pojia/deepseek-v3.2
+            name: DeepSeek V3.2 · 国产 破甲
+            contextWindow: 128000
+            maxTokens: 32000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+          - id: pojia/deepseek-v4-flash
+            name: DeepSeek V4 Flash · 国产 破甲
+            contextWindow: 1000000
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/deepseek-v4-flash-0731
+            name: deepseek-v4-flash-0731 · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/deepseek-v4-flash-0731:free
+            name: deepseek-v4-flash-0731:free · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/deepseek-v4-pro
+            name: DeepSeek V4 Pro · 国产 破甲
+            contextWindow: 1000000
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/deepseek-v4-pro-0813
+            name: DeepSeek V4 Pro 0813 · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              high: high
+              max: max
+          - id: pojia/deepseek-v4.1-flash
+            name: DeepSeek V4.1 Flash · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/deepseek-v4.1-flash-1017
+            name: DeepSeek V4.1 Flash 1017 · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 384000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              high: high
+              max: max
+          - id: pojia/glm-5.1
+            name: GLM-5.1 · 国产 破甲
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+          - id: pojia/glm-5.2
+            name: GLM-5.2 · 国产 破甲
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              high: high
+              max: max
+          - id: pojia/glm-5.3
+            name: GLM-5.3 · 国产 破甲
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/glm-5.3-flash
+            name: GLM-5.3-Flash · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/glm-5.3-flashx
+            name: GLM-5.3-FlashX · 国产 破甲
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/hy3
+            name: Hy3 · 国产 破甲
+            contextWindow: 192000
+            maxTokens: 48000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              high: high
+          - id: pojia/hy4
+            name: hy4 · 国产 破甲
+            input: [text, image]
+          - id: pojia/kimi-k2.7-code
+            name: Kimi K2.7 Code · 国产 破甲
+            contextWindow: 262144
+            maxTokens: 65536
+            input: [text, image]
+          - id: pojia/kimi-k2.8
+            name: kimi-k2.8 · 国产 破甲
+            input: [text, image]
+          - id: pojia/kimi-k3
+            name: Kimi K3 · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/kimi-k3.1-pro
+            name: Kimi K3.1 Pro · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 458752
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: pojia/mimo-v2.5
+            name: MiMo-V2.5 · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+          - id: pojia/mimo-v2.5-pro
+            name: MiMo-V2.5-Pro · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+          - id: pojia/mimo-v2.6-flash
+            name: MiMo-V2.6-Flash · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+          - id: pojia/mimo-v2.6-pro
+            name: MiMo-V2.6-Pro · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+          - id: pojia/minimax-m3
+            name: MiniMax-M3 · 国产 破甲
+            contextWindow: 1048576
+            maxTokens: 458752
+            input: [text, image]
+          - id: vast-glm/Qwen3.8-Flash-Next-Uncensored-IQ4_XS
+            name: Qwen3.8-Flash-Next-Uncensored-IQ4_XS · Vast Qwen 58960093
+            contextWindow: 262144
+            input: [text, image]
+          - id: claude/claude-haiku-5-5
+            name: Claude Haiku 5.5 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-sonnet-5-5
+            name: Claude Sonnet 5.5 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-opus-5-5
+            name: Claude Opus 5.5 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-fable-5-1
+            name: Claude Fable 5.1 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-opus-5
+            name: Claude Opus 5 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-sonnet-5
+            name: Claude Sonnet 5 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-fable-5
+            name: Claude Fable 5 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-opus-4-8
+            name: Claude Opus 4.8 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-opus-4-7
+            name: Claude Opus 4.7 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: claude/claude-sonnet-4-6
+            name: Claude Sonnet 4.6 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              max: max
+          - id: claude/claude-opus-4-6
+            name: Claude Opus 4.6 · Claude Code
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              max: max
+          - id: claude/claude-opus-4-5
+            name: Claude Opus 4.5 (latest) · Claude Code
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: claude/claude-opus-4-5-20251101
+            name: Claude Opus 4.5 · Claude Code
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: claude/claude-haiku-4-5
+            name: Claude Haiku 4.5 (latest) · Claude Code
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+          - id: claude/claude-haiku-4-5-20251001
+            name: Claude Haiku 4.5 · Claude Code
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+          - id: claude/claude-sonnet-4-5
+            name: Claude Sonnet 4.5 (latest) · Claude Code
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+          - id: claude/claude-sonnet-4-5-20250929
+            name: Claude Sonnet 4.5 · Claude Code
+            contextWindow: 200000
+            maxTokens: 50000
+            input: [text, image]
+          - id: cursor/auto
+            name: Auto · Cursor
+            contextWindow: 200000
+            maxTokens: 16384
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+          - id: cursor/grok-4.7@256k
+            name: Grok 4.7 @ 256k · Cursor
+            contextWindow: 256000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: cursor/grok-4.7@500k
+            name: Grok 4.7 @ 500k · Cursor
+            contextWindow: 500000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: cursor/grok-4.6
+            name: Grok 4.6 · Cursor
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: cursor/composer-2.5
+            name: Composer 2.5 · Cursor
+            contextWindow: 200000
+            input: [text, image]
+          - id: cursor/claude-opus-5-5@300k
+            name: Claude Opus 5.5 @ 300k · Cursor
+            contextWindow: 300000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-opus-5-5@1m
+            name: Claude Opus 5.5 @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-opus-5@300k
+            name: Claude Opus 5 @ 300k · Cursor
+            contextWindow: 300000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-opus-5@1m
+            name: Claude Opus 5 @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-opus-4-8@300k
+            name: Claude Opus 4.8 @ 300k · Cursor
+            contextWindow: 300000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-opus-4-8@1m
+            name: Claude Opus 4.8 @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/gemini-4-argon
+            name: Gemini 4 Argon · Cursor
+            contextWindow: 1000000
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: cursor/muse-wonder-1.0@300k
+            name: Muse Wonder @ 300k · Cursor
+            contextWindow: 300000
+            input: [text, image]
+            reasoningEfforts:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/muse-wonder-1.0@1m
+            name: Muse Wonder @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/gpt-5.6-sol@272k
+            name: GPT-5.6 Sol @ 272k · Cursor
+            contextWindow: 272000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/gpt-5.6-sol@1m
+            name: GPT-5.6 Sol @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/gpt-5.5@272k
+            name: GPT-5.5 @ 272k · Cursor
+            contextWindow: 272000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: cursor/gpt-5.5@1m
+            name: GPT-5.5 @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+          - id: cursor/claude-fable-5-1@300k
+            name: Claude Fable 5.1 @ 300k · Cursor
+            contextWindow: 300000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-fable-5-1@1m
+            name: Claude Fable 5.1 @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-fable-5@300k
+            name: Claude Fable 5 @ 300k · Cursor
+            contextWindow: 300000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/claude-fable-5@1m
+            name: Claude Fable 5 @ 1m · Cursor
+            contextWindow: 1000000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: cursor/grok-4.5
+            name: Grok 4.5 · Cursor
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: cursor/gemini-3.8-flash
+            name: Gemini 3.8 Flash · Cursor
+            contextWindow: 1000000
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: antigravity/gemini-pro-agent
+            name: Gemini 3.1 Pro (High) · Antigravity
+            input: [text, image]
+          - id: antigravity/gemini-3.1-pro-low
+            name: Gemini 3.1 Pro (Low) · Antigravity
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: antigravity/gemini-3-flash
+            name: Gemini 3 Flash · Antigravity
+            contextWindow: 1048576
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+          - id: antigravity/gemini-3.1-flash-lite
+            name: Gemini 3.1 Flash Lite · Antigravity
+            contextWindow: 1048576
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+          - id: antigravity/claude-opus-4-6-thinking
+            name: Claude Opus 4.6 (Thinking) · Antigravity
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              max: max
+          - id: antigravity/claude-sonnet-4-6
+            name: Claude Sonnet 4.6 · Antigravity
+            contextWindow: 1000000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              max: max
+          - id: antigravity/gpt-oss-120b-medium
+            name: GPT-OSS 120B (Medium) · Antigravity
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/beam-free
+            name: Beam Free · Our Free Model
+            contextWindow: 131072
+            maxTokens: 32768
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/flint-40b-free
+            name: Flint 40b Free · Our Free Model
+            contextWindow: 131072
+            maxTokens: 32768
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/mimo-v2.6-flash-free
+            name: MiMo V2.6 Flash · Our Free Model
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/nemotron-3.5-super-vl-free
+            name: Nemotron 3 5 Super Vl Free · Our Free Model
+            contextWindow: 128000
+            maxTokens: 32000
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/nemotron-3.5-lightning-free
+            name: Nemotron 3.5 Lightning · Our Free Model
+            contextWindow: 128000
+            maxTokens: 32000
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/deepseek-v4.1-flash-free
+            name: Deepseek V4 1 Flash Free · Our Free Model
+            contextWindow: 128000
+            maxTokens: 32000
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/glm-5.3-flash-free
+            name: Glm 5 3 Flash Free · Our Free Model
+            contextWindow: 131072
+            maxTokens: 32768
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/pulse-alpha-free
+            name: Pulse Alpha Free · Our Free Model
+            contextWindow: 131072
+            maxTokens: 32768
+            input: [text, image]
+            reasoningEfforts:
+              low: light
+          - id: our-free-model/kilo-auto/free
+            name: Kilo Auto Free · Our Free Model
+            contextWindow: 256000
+            maxTokens: 32768
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/nvidia/nemotron-3.5-super-vl:free
+            name: Kilo Nemotron 3.5 Super VL · Our Free Model
+            contextWindow: 1000000
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/reflection/beam-free
+            name: Kilo Beam 1.0 · Our Free Model
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/stealth/glyph-cluster
+            name: Kilo Glyph Cluster · Our Free Model
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/recursive/flint-v1.0:free
+            name: Kilo Flint · Our Free Model
+            contextWindow: 262144
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/xingchen-agi/xing4.0-29b-a4b:free
+            name: Kilo Xing4.0 29B A4B · Our Free Model
+            contextWindow: 262144
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/dots-studio/dots-3-note-preview:free
+            name: Kilo Dots3-Note Preview · Our Free Model
+            contextWindow: 512000
+            maxTokens: 190464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/liquid/lfm-2.5-2.6b:free
+            name: Kilo LFM2.5-2.6B · Our Free Model
+            contextWindow: 65536
+            maxTokens: 8192
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/nvidia/nemotron-3.5-lightning:free
+            name: Kilo Nemotron 3.5 Lightning · Our Free Model
+            contextWindow: 1000000
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/thinkingmachines/inkling-small:free
+            name: Kilo Inkling Small · Our Free Model
+            contextWindow: 1048576
+            maxTokens: 262144
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/thinkingmachines/inkling:free
+            name: Kilo Inkling · Our Free Model
+            contextWindow: 1048576
+            maxTokens: 262144
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/cohere/north-mini-code:free
+            name: Kilo North Mini Code · Our Free Model
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/nvidia/nemotron-3.5-content-safety:free
+            name: Kilo Nemotron 3.5 Content Safety · Our Free Model
+            contextWindow: 128000
+            maxTokens: 8192
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/nvidia/nemotron-3-ultra-550b-a55b:free
+            name: Kilo Nemotron 3 Ultra · Our Free Model
+            contextWindow: 1000000
+            maxTokens: 65536
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free
+            name: Kilo Nemotron 3 Nano Omni · Our Free Model
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: our-free-model/google/gemma-4-31b-it:free
+            name: Kilo Gemma 4 31B · Our Free Model
+            contextWindow: 262144
+            maxTokens: 32768
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+        streamIdleTimeoutMs: 600000
+      magpie-responses:
+        displayName: Magpie · Responses
+        apiKeyEnv: MAGPIE_GATEWAY_KEY
+        api: openai-responses
+        baseURL: http://127.0.0.1:3425/v1
+        models:
+          - id: group/office-codex
+            name: office-codex · routing group
+            contextWindow: 500000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: opencode-go/grok-4.7
+            name: Grok 4.7 · OpenCode Go
+            contextWindow: 500000
+            maxTokens: 184464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: opencode-go/muse-spark-1.2-contributor
+            name: Muse Spark 1.2 Contributor · OpenCode Go
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: opencode-go/muse-spark-1.3-contributor
+            name: Muse Spark 1.3 Contributor · OpenCode Go
+            contextWindow: 1048576
+            maxTokens: 131072
+            input: [text, image]
+            reasoningEfforts:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: opencode-go/gpt-5.6-luna
+            name: GPT-5.6 Luna · OpenCode Go
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: opencode-go/gpt-6-luna
+            name: GPT-6 Luna · OpenCode Go
+            contextWindow: 922000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              "off": none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-6.1-sol
+            name: GPT-6.1-Sol · Codex
+            contextWindow: 500000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-6-astra
+            name: GPT-6-Astra · Codex
+            contextWindow: 272000
+            maxTokens: 70464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-6.1-terra
+            name: GPT-6.1 Terra · Codex
+            contextWindow: 500000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-6-sol
+            name: GPT-6-Sol · Codex
+            contextWindow: 272000
+            maxTokens: 70464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-6-luna
+            name: GPT-6-Luna · Codex
+            contextWindow: 272000
+            maxTokens: 70464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-5.6-sol
+            name: GPT-5.6-Sol · Codex
+            contextWindow: 272000
+            maxTokens: 70464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-5.6-terra
+            name: GPT-5.6-Terra · Codex
+            contextWindow: 272000
+            maxTokens: 70464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: codex/gpt-5.6-luna
+            name: GPT-5.6-Luna · Codex
+            contextWindow: 272000
+            maxTokens: 70464
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.7
+            name: Grok 4.7 · Grok
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.7@500k
+            name: Grok 4.7 @ 500k · Grok
+            contextWindow: 500000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.7-build-fast
+            name: Grok 4.7 Fast · Grok
+            contextWindow: 256000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.7-build-fast@500k
+            name: Grok 4.7 Fast @ 500k · Grok
+            contextWindow: 500000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.6
+            name: Grok 4.6 · Grok
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.6@500k
+            name: Grok 4.6 @ 500k · Grok
+            contextWindow: 500000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.5
+            name: Grok 4.5 · Grok
+            contextWindow: 256000
+            maxTokens: 64000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+            compat:
+              supportsStrictMode: true
+          - id: grok/grok-4.5@500k
+            name: Grok 4.5 @ 500k · Grok
+            contextWindow: 500000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+            compat:
+              supportsStrictMode: true
+        streamIdleTimeoutMs: 600000
+      magpie-anthropic:
+        displayName: Magpie · Anthropic
+        apiKeyEnv: MAGPIE_GATEWAY_KEY
+        api: anthropic-messages
+        baseURL: http://127.0.0.1:3425
+        models:
+          - id: opencode-go/claude-haiku-5-5
+            name: Claude Haiku 5.5 · OpenCode Go
+            contextWindow: 1000000
+            maxTokens: 128000
+            input: [text, image]
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+            compat:
+              forceAdaptiveThinking: true
+        streamIdleTimeoutMs: 600000
+      openai:
+        apiKeyEnv: OPENAI_API_KEY
+- id: agent-default-model # magpie
+  config:
+    provider: deepseek-official
+    model: deepseek-flash
+    reasoningEffort: high
+- id: locale
+  name: "@deepseek-ai/dsh-client-locale"
+  config:
+    preference: zh
