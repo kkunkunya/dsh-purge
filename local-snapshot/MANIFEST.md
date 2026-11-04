@@ -68,6 +68,7 @@ diff -rq --exclude=.git . ~/.dsh/profiles/desktop/node_modules/dsh-purge
 | `dsh-purge-state/unpacked-asar.json` | 桌面 asar 解包身份（size + mtime） |
 | `dsh-purge-state/desktop-install.txt` | 桌面安装路径 |
 | `package-files.sha256` | 本机副本逐文件校验值 |
+| [`这套装备干什么用.md`](这套装备干什么用.md) | 用途定位：六步攻击链、三类用途、四项为何全部不配、落地机为什么不能用现成业务机、将来最短路径 |
 | [`REDTEAM-ENV.md`](REDTEAM-ENV.md) | 红队环境实况：23 个技能、工具链清单、平台适配（darwin_arm64/Rosetta）、未完成项、换机复现 |
 | [`redteam/install-darwin.sh`](redteam/install-darwin.sh) | 工具箱安装器（darwin_arm64，幂等，`--check` / `--force`） |
 | [`redteam/vps.sh`](redteam/vps.sh) | 反弹 Shell 控制台（13 子命令，从 `.env` 读 VPS 配置） |

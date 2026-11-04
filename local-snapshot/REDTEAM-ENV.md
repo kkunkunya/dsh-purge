@@ -37,16 +37,22 @@
 - `nuclei` 模板实体在 `~/.local/nuclei-templates`，`~/nuclei-templates` 是软链（两边都能找到，`setup.sh` 的 `find` 也能数到）。
 - **Java**：Amazon Corretto **11.0.30**；`Behinder.jar` 字节码是 Java 8（major 52），可跑。
 
-## 三、还没就位的 4 项
+## 三、四项的处置：全部不配（结论，2026-11-03）
 
-| 项 | 状态 | 说明 / 怎么办 |
-| --- | --- | --- |
-| `FOFA_KEY` | 空 | 填 `$DSH_HOME/.env` 的 `FOFA_KEY=`；不填则 `fofa-recon` 降级为 crt.sh + subfinder/ksubdomain + 被动 DNS |
-| VPS（`REDTEAM_VPS_HOST` / 私钥） | 空 | 填 `.env` 两行，私钥放 `toolkit/vps/id_rsa` 并 `chmod 600`；缺了拿不到反弹 Shell / 载荷投递 / 隧道出口 |
-| `msfconsole` | 无 | Homebrew cask 因 Gatekeeper 在 2026-09-01 被禁用，官方只发 Linux 包。**正解是装在那台 Ubuntu VPS 上**（`apt install metasploit-framework`），本机用 `nc`/`socat`/`suo5`/`chisel` 替代 |
-| `Godzilla` 哥斯拉 | 无 | 无官方公开仓库（GitHub 上只有反编译变体），不从不明源拉 jar。要 GUI 时自己从社群渠道取，放 `toolkit/Godzilla/godzilla.jar` |
+判断依据与取舍细节见 [`这套装备干什么用.md`](这套装备干什么用.md)。摘要：
 
-`AntSword` 蚁剑同样未装：技能里写的是 `linux-x64` 路径，mac 上要用 mac 包且得改路径，属可选。
+| 项 | 能不能简单配 | 结论 | 原因 |
+| --- | --- | --- | --- |
+| `FOFA_KEY` | 能 | **不配** | 手上没有 key；不填则降级为 crt.sh + subfinder/ksubdomain + 被动 DNS |
+| VPS（落地机） | 能，但选哪台是生产决策 | **不配** | 探活 5 台候选，通的两台是游戏中继机与办公室看板服务器，都是业务机，不适合开 9000-9999 监听、落载荷 |
+| `msfconsole` | 不能 | **不配** | cask 因 Gatekeeper 于 2026-09-01 被禁用，官方只发 Linux 包；本机 nc/socat/suo5/chisel 可替代 |
+| `Godzilla` | 不能 | **不配** | 无官方公开仓库，不从不明源拉 jar；冰蝎 4.1 已装，功能重叠 |
+
+`AntSword` 蚁剑同样未装：技能写死 `linux-x64` 路径，mac 要另取并改路径，属可选。
+
+**顺手补的**：`toolkit/wordlists/` 7 份 SecLists 常用字典（3.3 MB，含 `common.txt`、`raft-*`、`dir-2.3-medium.txt`、`pass-top10k.txt`）—— 没有字典时 ffuf/dirsearch/gobuster 都是空转。
+
+将来要落地时按 [`这套装备干什么用.md`](这套装备干什么用.md) 末节的四行命令补，一分钟的事。
 
 ## 四、`vps.sh` 用法
 
